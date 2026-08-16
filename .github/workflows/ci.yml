@@ -27,7 +27,7 @@ jobs:
         run: docker build -t signal-api:${{ github.sha }} .
 
       - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@v0.24.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: signal-api:${{ github.sha }}
           severity: HIGH,CRITICAL
