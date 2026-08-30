@@ -1,5 +1,5 @@
 # -------- Stage 1: build ----------
-FROM eclipse-temurin:26-jdk@sha256:196a32e6591e431e049a90baffdb03921ea0e1d05ec56ccaee311463e6640c47 AS build
+FROM eclipse-temurin:26-jdk@sha256:c0fe66ea21e972724000cf402f8081c7841d960839f69cb0754f40b40f74b2cc AS build
 WORKDIR /src
 
 # copy build files first so Docker can cache dependency downloads
@@ -12,7 +12,7 @@ COPY src src
 RUN ./gradlew bootJar --no-daemon
 
 # ---------- Stage 2: run ------------
-FROM eclipse-temurin:26-jre@sha256:104b5f371e2970cea995c01c3367ea7b0e3a4fa327c6aed51dda672b5e34d241
+FROM eclipse-temurin:26-jre@sha256:2b3c7b20375e9ac3ab6a7bc39357d3dbe2caf48378fe9e5c306a22da3499f170
 WORKDIR /app
 
 # curl is needed for the container healthcheck later
